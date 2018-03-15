@@ -1,0 +1,16 @@
+{
+  "name": "sandbox-nodejs",
+  "version": "1.0.0",
+  "description": "Sandbox for NodeJS",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^5.0.4",
+    "should": "^13.2.1"
+  },
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/_mocha --recursive tests"
+  },
+  "author": "",
+  "license": "ISC"
+}

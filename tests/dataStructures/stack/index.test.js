@@ -10,7 +10,7 @@ describe('dataStructure/stack', () => {
     });
 
     describe('push()', () => {
-        it('should push items to end of array', () => {
+        it('should add items to end of stack', () => {
             /* arrange */
             const expected = [];
 
@@ -31,7 +31,7 @@ describe('dataStructure/stack', () => {
             should(() => objectUnderTest.pop()).throw('Underflow')
         });
         
-        it('should remove last item from array', () => {
+        it('should remove last item from stack', () => {
             /* arrange */
             provided.forEach(item => objectUnderTest.push(item));
             const expected = [provided[0], provided[1]];
@@ -43,7 +43,7 @@ describe('dataStructure/stack', () => {
             objectUnderTest.items.should.deepEqual(expected);
         });
 
-        it('should return last item from array', () => {
+        it('should return last item from stack', () => {
              /* arrange */
              provided.forEach(item => objectUnderTest.push(item));
              const expected = provided[2];
@@ -57,7 +57,18 @@ describe('dataStructure/stack', () => {
     });
 
     describe('peek()', () => {
-        it('should return last item from array', () => {
+        it('should return undefined if stack is empty', () => {
+            /* arrange */
+            const expected = undefined;
+
+            /* act */
+            const result = objectUnderTest.peek();
+
+            /* assert */
+            should.equal(result, expected);
+        });
+
+        it('should return last item from stack', () => {
             /* arrange */
             provided.forEach(item => objectUnderTest.push(item));
             const expected = provided[2];

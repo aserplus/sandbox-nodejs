@@ -1,14 +1,15 @@
-module.exports = class Stack {
+module.exports = class Queue {
     constructor() {
         this.items = [];
     }
 
     /**
-     * Insert item at end of the stack
+     * Add item to end of queue
      * @param {*} item 
      */
-    push(item) {
+    enqueue(item) {
         /* NOTE: could do the same thing with push() */
+
         const newArray = new Array(this.items.length + 1);
 
         for (let i = 0; i < this.items.length; i++) {
@@ -21,30 +22,41 @@ module.exports = class Stack {
     }
 
     /**
-     * Remove and return last item in queue
+     * Remove and return first item in queue
      */
-    pop() {
-        /* NOTE: could do the same thing with pop() */
+    dequeue() {
+        /* NOTE: could do the same thing with shift() */
         if (this.isEmpty()) {
             throw new Error('Underflow');
         }
 
-        const poppedItem = this.items[this.items.length - 1];
+        const dequeuedItem = this.items[0];
         const newArray = new Array(this.items.length - 1);
     
-        for (let i = 0; i < newArray.length; i++) {
-            newArray[i] = this.items[i];
+        for (let i = 1; i < this.items.length; i++) {
+            newArray[i - 1] = this.items[i];
         }
 
         this.items = newArray;
 
-        return poppedItem;
+        return dequeuedItem;
     }
 
     /**
-     * Return last item in stack
+     * Returns the front item of the queue
      */
-    peek() {
+    front() {
+        if (this.isEmpty()) {
+            return undefined;
+        }
+
+        return this.items[0];
+    }
+
+    /**
+     * Returns the last item of the queue
+     */
+    rear() {
         if (this.isEmpty()) {
             return undefined;
         }
@@ -53,7 +65,7 @@ module.exports = class Stack {
     }
 
     /**
-     * Check's if the stack is empty
+     * Check's if the queue is empty
      */
     isEmpty() {
         return this.items.length === 0;

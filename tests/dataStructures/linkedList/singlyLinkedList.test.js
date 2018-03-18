@@ -1,131 +1,131 @@
 const should = require('should');
-const Node = require('../../../dataStructures/linkedList/node');
-const SinglyLinkedList = require('../../../dataStructures/linkedList/singlyLinkedList');
+const Node = require('../../../app/dataStructures/linkedList/node');
+const SinglyLinkedList = require('../../../app/dataStructures/linkedList/singlyLinkedList');
 
 describe('dataStructure/linkedList/singlyLinkedList', () => {
-	let objectUnderTest;
+  let objectUnderTest;
 
-	beforeEach(() => {
-		objectUnderTest = new SinglyLinkedList();
-	});
+  beforeEach(() => {
+    objectUnderTest = new SinglyLinkedList();
+  });
 
-	describe('insertFirst()', () => {
-		it('should add nodes at start', () => {
-			/* arrange */
-			const expected = new Node(3);
-			expected.next = new Node(2);
-			expected.next.next = new Node(1);
+  describe('insertFirst()', () => {
+    it('should add nodes at start', () => {
+      /* arrange */
+      const expected = new Node(3);
+      expected.next = new Node(2);
+      expected.next.next = new Node(1);
 
-			/* act */
-			objectUnderTest.insertFirst(1);
-			objectUnderTest.insertFirst(2);
-			objectUnderTest.insertFirst(3);
+      /* act */
+      objectUnderTest.insertFirst(1);
+      objectUnderTest.insertFirst(2);
+      objectUnderTest.insertFirst(3);
 
-			/* assert */
-			objectUnderTest.head.should.be.deepEqual(expected);
-		});
-	});
+      /* assert */
+      objectUnderTest.head.should.be.deepEqual(expected);
+    });
+  });
 
-	describe('insertLast()', () => {
-		it('should add nodes at end', () => {
-			/* arrange */
-			const expected = new Node(1);
-			expected.next = new Node(2);
-			expected.next.next = new Node(3);
+  describe('insertLast()', () => {
+    it('should add nodes at end', () => {
+      /* arrange */
+      const expected = new Node(1);
+      expected.next = new Node(2);
+      expected.next.next = new Node(3);
 
-			/* act */
-			objectUnderTest.insertLast(1);
-			objectUnderTest.insertLast(2);
-			objectUnderTest.insertLast(3);
+      /* act */
+      objectUnderTest.insertLast(1);
+      objectUnderTest.insertLast(2);
+      objectUnderTest.insertLast(3);
 
-			/* assert */
-			objectUnderTest.head.should.be.deepEqual(expected);
-		});
-	});
+      /* assert */
+      objectUnderTest.head.should.be.deepEqual(expected);
+    });
+  });
 
-	describe('removeFirst()', () => {
-		it('should remove node at start', () => {
-			/* arrange */
-			objectUnderTest.insertLast(1);
-			objectUnderTest.insertLast(2);
-			objectUnderTest.insertLast(3);
+  describe('removeFirst()', () => {
+    it('should remove node at start', () => {
+      /* arrange */
+      objectUnderTest.insertLast(1);
+      objectUnderTest.insertLast(2);
+      objectUnderTest.insertLast(3);
 
-			const expected = new Node(2);
-			expected.next = new Node(3);
+      const expected = new Node(2);
+      expected.next = new Node(3);
 
-			/* act */
-			objectUnderTest.removeFirst();
+      /* act */
+      objectUnderTest.removeFirst();
 
-			/* assert */
-			objectUnderTest.head.should.be.deepEqual(expected);
-		});
+      /* assert */
+      objectUnderTest.head.should.be.deepEqual(expected);
+    });
 
-		it('should remove all nodes', () => {
-			/* arrange */
-			objectUnderTest.insertLast(1);
-			const expected = null;
+    it('should remove all nodes', () => {
+      /* arrange */
+      objectUnderTest.insertLast(1);
+      const expected = null;
 
-			/* act */
-			objectUnderTest.removeFirst();
+      /* act */
+      objectUnderTest.removeFirst();
 
-			/* assert */
-			should.deepEqual(objectUnderTest.head, expected);
-		});
-	});
+      /* assert */
+      should.deepEqual(objectUnderTest.head, expected);
+    });
+  });
 
-	describe('removeLast()', () => {
-		it('should remove node at end', () => {
-			/* arrange */
-			objectUnderTest.insertLast(1);
-			objectUnderTest.insertLast(2);
-			objectUnderTest.insertLast(3);
+  describe('removeLast()', () => {
+    it('should remove node at end', () => {
+      /* arrange */
+      objectUnderTest.insertLast(1);
+      objectUnderTest.insertLast(2);
+      objectUnderTest.insertLast(3);
 
-			const expected = new Node(1);
-			expected.next = new Node(2);
+      const expected = new Node(1);
+      expected.next = new Node(2);
 
-			/* act */
-			objectUnderTest.removeLast();
+      /* act */
+      objectUnderTest.removeLast();
 
-			/* assert */
-			objectUnderTest.head.should.be.deepEqual(expected);
-		});
+      /* assert */
+      objectUnderTest.head.should.be.deepEqual(expected);
+    });
 
-		it('should remove all nodes', () => {
-			/* arrange */
-			objectUnderTest.insertLast(1);
-			const expected = null;
+    it('should remove all nodes', () => {
+      /* arrange */
+      objectUnderTest.insertLast(1);
+      const expected = null;
 
-			/* act */
-			objectUnderTest.removeLast();
+      /* act */
+      objectUnderTest.removeLast();
 
-			/* assert */
-			should.deepEqual(objectUnderTest.head, expected);
-		});
-	});
-	
-	describe('isEmpty()', () => {
-		it('should return true', () => {
-			/* arrange */
-			const expected = true;
+      /* assert */
+      should.deepEqual(objectUnderTest.head, expected);
+    });
+  });
 
-			/* act */
-			const result = objectUnderTest.isEmpty();
+  describe('isEmpty()', () => {
+    it('should return true', () => {
+      /* arrange */
+      const expected = true;
 
-			/* assert */
-			result.should.be.equal(expected);
-		});
+      /* act */
+      const result = objectUnderTest.isEmpty();
 
-		it('should return false', () => {
-			/* arrange */
-			const expected = false;
-			
-			objectUnderTest.insertLast(1);
+      /* assert */
+      result.should.be.equal(expected);
+    });
 
-			/* act */
-			const result = objectUnderTest.isEmpty();
+    it('should return false', () => {
+      /* arrange */
+      const expected = false;
 
-			/* assert */
-			result.should.be.equal(expected);
-		});
-	});
+      objectUnderTest.insertLast(1);
+
+      /* act */
+      const result = objectUnderTest.isEmpty();
+
+      /* assert */
+      result.should.be.equal(expected);
+    });
+  });
 });

@@ -5,11 +5,17 @@
   "main": "app.js",
   "dependencies": {},
   "devDependencies": {
+    "eslint": "^4.19.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
     "mocha": "^5.0.4",
     "should": "^13.2.1"
   },
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/_mocha --recursive tests"
+    "test-style": "node_modules/.bin/eslint tests",
+    "test-unit": "node ./node_modules/mocha/bin/_mocha --recursive tests"
   },
   "author": "",
   "license": "ISC"

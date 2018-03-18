@@ -14,7 +14,7 @@
     "should": "^13.2.1"
   },
   "scripts": {
-    "test-style": "node_modules/.bin/eslint tests",
+    "test-style": "node_modules/.bin/eslint tests app",
     "test-unit": "node ./node_modules/mocha/bin/_mocha --recursive tests"
   },
   "author": "",

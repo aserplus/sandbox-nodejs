@@ -2,107 +2,107 @@ const should = require('should');
 const Stack = require('../../../app/dataStructures/stack/index');
 
 describe('dataStructure/stack', () => {
-  let objectUnderTest;
-  const provided = [1, 2, 3];
+    let objectUnderTest;
+    const provided = [1, 2, 3];
 
-  beforeEach(() => {
-    objectUnderTest = new Stack();
-  });
-
-  describe('push()', () => {
-    it('should add items to end of stack', () => {
-      /* arrange */
-      const expected = [];
-
-      provided.forEach((item) => {
-        /* act */
-        objectUnderTest.push(item);
-
-        expected.push(item);
-
-        /* assert */
-        objectUnderTest.items.should.deepEqual(expected);
-      });
-    });
-  });
-
-  describe('pop()', () => {
-    it('should throw "Underflow" error', () => {
-      should(() => objectUnderTest.pop()).throw('Underflow');
+    beforeEach(() => {
+        objectUnderTest = new Stack();
     });
 
-    it('should remove last item from stack', () => {
-      /* arrange */
-      provided.forEach(item => objectUnderTest.push(item));
-      const expected = [provided[0], provided[1]];
+    describe('push()', () => {
+        it('should add items to end of stack', () => {
+            /* arrange */
+            const expected = [];
 
-      /* act */
-      objectUnderTest.pop();
+            provided.forEach((item) => {
+                /* act */
+                objectUnderTest.push(item);
 
-      /* assert */
-      objectUnderTest.items.should.deepEqual(expected);
+                expected.push(item);
+
+                /* assert */
+                objectUnderTest.items.should.deepEqual(expected);
+            });
+        });
     });
 
-    it('should return last item from stack', () => {
-      /* arrange */
-      provided.forEach(item => objectUnderTest.push(item));
-      const expected = provided[2];
+    describe('pop()', () => {
+        it('should throw "Underflow" error', () => {
+            should(() => objectUnderTest.pop()).throw('Underflow');
+        });
 
-      /* act */
-      const result = objectUnderTest.pop();
+        it('should remove last item from stack', () => {
+            /* arrange */
+            provided.forEach(item => objectUnderTest.push(item));
+            const expected = [provided[0], provided[1]];
 
-      /* assert */
-      result.should.equal(expected);
-    });
-  });
+            /* act */
+            objectUnderTest.pop();
 
-  describe('peek()', () => {
-    it('should return undefined if stack is empty', () => {
-      /* arrange */
-      const expected = undefined;
+            /* assert */
+            objectUnderTest.items.should.deepEqual(expected);
+        });
 
-      /* act */
-      const result = objectUnderTest.peek();
+        it('should return last item from stack', () => {
+            /* arrange */
+            provided.forEach(item => objectUnderTest.push(item));
+            const expected = provided[2];
 
-      /* assert */
-      should.equal(result, expected);
-    });
+            /* act */
+            const result = objectUnderTest.pop();
 
-    it('should return last item from stack', () => {
-      /* arrange */
-      provided.forEach(item => objectUnderTest.push(item));
-      const expected = provided[2];
-
-      /* act */
-      const result = objectUnderTest.peek();
-
-      /* assert */
-      result.should.equal(expected);
-    });
-  });
-
-  describe('isEmpty()', () => {
-    it('should return true', () => {
-      /* arrange */
-      const expected = true;
-
-      /* act */
-      const result = objectUnderTest.isEmpty();
-
-      /* assert */
-      result.should.equal(expected);
+            /* assert */
+            result.should.equal(expected);
+        });
     });
 
-    it('should return false', () => {
-      /* arrange */
-      provided.forEach(item => objectUnderTest.push(item));
-      const expected = false;
+    describe('peek()', () => {
+        it('should return undefined if stack is empty', () => {
+            /* arrange */
+            const expected = undefined;
 
-      /* act */
-      const result = objectUnderTest.isEmpty();
+            /* act */
+            const result = objectUnderTest.peek();
 
-      /* assert */
-      result.should.equal(expected);
+            /* assert */
+            should.equal(result, expected);
+        });
+
+        it('should return last item from stack', () => {
+            /* arrange */
+            provided.forEach(item => objectUnderTest.push(item));
+            const expected = provided[2];
+
+            /* act */
+            const result = objectUnderTest.peek();
+
+            /* assert */
+            result.should.equal(expected);
+        });
     });
-  });
+
+    describe('isEmpty()', () => {
+        it('should return true', () => {
+            /* arrange */
+            const expected = true;
+
+            /* act */
+            const result = objectUnderTest.isEmpty();
+
+            /* assert */
+            result.should.equal(expected);
+        });
+
+        it('should return false', () => {
+            /* arrange */
+            provided.forEach(item => objectUnderTest.push(item));
+            const expected = false;
+
+            /* act */
+            const result = objectUnderTest.isEmpty();
+
+            /* assert */
+            result.should.equal(expected);
+        });
+    });
 });

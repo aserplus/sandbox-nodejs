@@ -13,7 +13,8 @@
         "eol-last": [0],
         "indent": [1, 4],
         "one-var": [2, { "var": "always", "let": "never", "const": "never" }],
-        "max-len": [2, {"code": 128}]
+        "max-len": [2, {"code": 128}],
+        "no-plusplus": "off"
     },
     "extends": "airbnb"
 }

@@ -31,7 +31,6 @@ describe('algorithms/sort/mergeSort', () => {
                 expected: [-3, -1, 0, 1, 1, 2, 3, 3, 4, 4, 6, 8, 9, 1111, 123123, 234234],
             }];
 
-        let result;
         scenarios.forEach((scenario) => {
             /* act */
             mergeSort(scenario.provided.data);

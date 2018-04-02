@@ -12,7 +12,7 @@ module.exports = class Queue {
 
         const newArray = new Array(this.items.length + 1);
 
-        for (let i = 0; i < this.items.length; i += 1) {
+        for (let i = 0; i < this.items.length; i++) {
             newArray[i] = this.items[i];
         }
 
@@ -33,7 +33,7 @@ module.exports = class Queue {
         const dequeuedItem = this.items[0];
         const newArray = new Array(this.items.length - 1);
 
-        for (let i = 1; i < this.items.length; i += 1) {
+        for (let i = 1; i < this.items.length; i++) {
             newArray[i - 1] = this.items[i];
         }
 

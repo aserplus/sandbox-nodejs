@@ -2,7 +2,7 @@ const merge = (array, start, mid, end) => {
     const copyArray = array;
 
     // 1) Create sub arrays for lower half
-    const lowerLength = (mid - start) + 1; // REMINDER: Add the one
+    const lowerLength = (mid + 1) - start; // REMINDER: Add the one
 
     // NOTE: Can do without the need of new Array, but wanted to be consistent with other languages
     const lowerArray = new Array(lowerLength);
@@ -13,7 +13,7 @@ const merge = (array, start, mid, end) => {
     }
 
     // 2) Create sub arrays for lower half
-    const upperLength = (end - mid); // REMINDER: No need to add the one as the mid is missing a 1
+    const upperLength = end - mid; // REMINDER: No need to add the one as the mid is missing a 1
     const upperArray = new Array(upperLength);
     for (let i = 0; i < upperLength; i++) {
         upperArray[i] = copyArray[(mid + 1) + i]; // REMINDER: Add the 1 to copy array index
